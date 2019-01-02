@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)http://127.0.0.1:8020/d%E5%B2%9B%E4%B8%8A%E4%B9%A6%E5%BA%97/shopping.html?__hbt=1546417480927 -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>访问当当购物车页面节点</title>
+		<link type="text/css" rel="stylesheet" href="./访问当当购物车页面节点_files/new_file.css">
+	</head>
+
+	<body>
+
+		<div class="content">
+			<div class="logo">
+				<img src="./访问当当购物车页面节点_files/dd_logo.jpg"><span onclick="close_plan();">关闭</span>
+			</div>
+			<div class="cartList" id="cartList">
+				<ul>
+					<li>¥<input type="text" name="price" value="21.90"></li>
+					<li><input type="button" name="minus" value="-" onclick="jian1()"><input type="text" id="aa" name="amount" value="1"><input type="button" name="plus" value="+" onclick="jia1()"></li>
+					<li id="price0">¥21.90</li>
+					<li>
+						<p onclick="collection();">移入收藏</p>
+						<p onclick="del();">删除</p>
+					</li>
+				</ul>
+				<ul>
+					<li>¥<input type="text" name="price" value="24.00"></li>
+					<li><input type="button" name="minus" value="-" onclick="jian2()"><input type="text" id="bb" name="amount" value="1"><input type="button" name="plus" value="+" onclick="jia2()"></li>
+					<li id="price1">¥24.00</li>
+					<li>
+						<p onclick="collection();">移入收藏</p>
+						<p onclick="del();">删除</p>
+					</li>
+				</ul>
+				<ol>
+					<li id="totalPrice">&nbsp;</li>
+					<li><span onclick="accounts();">结 算</span></li>
+				</ol>
+			</div>
+			<div id="cc"></div>
+		</div>
+		<script type="text/javascript">
+			function jia1(){
+				aa.value++;
+			}
+			function jia2(){
+				bb.value++;
+			}
+			function jian1(){
+				if(aa.value<=0){
+					aa.value=1;
+				}
+				aa.value--;
+			}
+			function jian2(){
+				if(bb.value<=0){
+					bb.value=1;
+				}
+				bb.value--;
+			}
+			
+			
+		
+			
+			
+			
+			function accounts() {
+				var shuliang = document.getElementsByName("amount");
+				var shuliang1 = parseInt(shuliang[0].value);
+				var danjia1 = shuliang[0].parentElement.previousElementSibling.firstElementChild.value
+				var zongjia1 = shuliang1 * danjia1
+
+				var shuliang = document.getElementsByName("amount");
+				var shuliang2 = parseInt(shuliang[1].value);
+				var danjia2 = shuliang[1].parentElement.previousElementSibling.firstElementChild.value
+				var zongjia2 = shuliang2 * danjia2
+				totalPrice.innerHTML = zongjia1 + zongjia2
+				
+				cc.innerHTML="白岩松；白说"+zongjia1+"<br/>"+"岛上书店"+zongjia2
+				
+
+			}
+		</script>
+	
+
+</body></html>
